@@ -11,4 +11,8 @@ router.post('/cart/checkout', ordersCtrl.checkout);
 // POST /api/orders/cart/qty
 router.put('/cart/qty', ordersCtrl.setItemQtyInCart);
 
+
+//GET /api/orders
+router.get('/',ordersCtrl.index)
+
 module.exports = router;
