@@ -13,6 +13,7 @@
   .OrderList li:hover:not(.active) {
     cursor: pointer;
     border: .3vmin solid var(--orange);
+    border-radius: 1vmin;
     color: var(--white);
 
   }
@@ -20,5 +21,6 @@
   .OrderList li.active {
     color: var(--text-dark);
     border: .3vmin solid var(--orange);
+    border-radius: 1vmin;
     margin-bottom: 0;
   }
