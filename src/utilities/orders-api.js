@@ -30,3 +30,4 @@ export function checkout() {
 export function getAllOrders() {
   return sendRequest(BASE_URL)
 }
+

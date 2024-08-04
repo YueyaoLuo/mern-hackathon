@@ -2,8 +2,23 @@
     background-color: var(--tan-1);
     border: .1vmin solid var(--tan-3);
     border-radius: 2vmin;
-    margin: 3vmin 0;
     padding: 3vmin;
     overflow-y: scroll;
+    list-style: none;
+  }
+  .OrderList li{
+    margin-top: 3vmin;
+  }
+
+  .OrderList li:hover:not(.active) {
+    cursor: pointer;
+    border: .3vmin solid var(--orange);
+    color: var(--white);
+
   }
   
+  .OrderList li.active {
+    color: var(--text-dark);
+    border: .3vmin solid var(--orange);
+    margin-bottom: 0;
+  }

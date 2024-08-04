@@ -7,15 +7,23 @@ import OrderDetail from "../../components/OrderDetail/OrderDetail";
 import OrderList from "../../components/OrderList/OrderList";
 import * as ordersAPI from "../../utilities/orders-api";
 
+
 export default function OrderHistoryPage({ user, setUser }) {
-  const [orderItems, setOrderItems] = useState([])
-  useEffect(function(){
+  const [orderItems, setOrderItems] = useState([]);
+  const [activeOrder, setActiveOrder] = useState('');
+  const orderRef = useRef([])
+
+  useEffect(function () {
     async function getOrders() {
-      const orders = await ordersAPI.getAllOrders()
-      setOrderItems(orders)
+      const orders = await ordersAPI.getAllOrders();
+      orderRef.current = [...orders.map(order => order.orderId)]
+      setOrderItems(orders);
+      setActiveOrder(orderRef.current[0]);
     }
-    getOrders()
-  }, [])
+    getOrders();
+  }, []);
+
+
   return (
     <main className="OrderHistoryPage">
       <aside>
@@ -25,10 +33,10 @@ export default function OrderHistoryPage({ user, setUser }) {
         </Link>
         <UserLogOut user={user} setUser={setUser} />
       </aside>
-      <OrderList orderItems={orderItems}/>
+      <OrderList orderItems={orderItems} activeOrder={activeOrder} setActiveOrder={setActiveOrder}/>
+
+      <OrderDetail order={orderItems.find((order) => order.orderId === activeOrder)}/>
       
-      <OrderDetail />
-      {/* Render the existing OrderDetail component */}
     </main>
   );
 }

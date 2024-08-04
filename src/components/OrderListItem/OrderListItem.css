@@ -3,7 +3,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 3vmin;
     padding: 2vmin;
     color: var(--text-light);
     background-color: var(--white);

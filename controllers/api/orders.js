@@ -38,7 +38,7 @@ async function checkout(req, res) {
 }
 
 
-//get all history orders that belong to req.user
+//get all history orders that belong to req.user, sorting in descending
 async function index(req, res) {
   const orders = await Order.find({user: req.user})
   res.json(orders)
